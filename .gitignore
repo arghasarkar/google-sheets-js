@@ -69,7 +69,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -80,7 +80,6 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -105,3 +104,15 @@ dist
 
 # IDE
 .idea
+
+# Google sheets credentials
+credentials.json
+token.json
+token-sample.json
+credentials-sample.json
+
+# Random test files
+test.js
+
+# Dist
+dist

@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/GoogleSheets.ts',
+  entry: './src/index.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
         include: [
@@ -22,6 +22,12 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    libraryTarget: "umd",
+    library: "GoogleSheets"
   },
-  watch: true,
+  target: 'node',
+  node: {
+    __dirname: false
+  },
+  watch: false,
 };

@@ -1,11 +1,11 @@
 {
   "name": "google-sheets-js",
-  "version": "1.0.1",
+  "version": "1.0.32",
   "description": "An easy to use synchronous google sheets reader without the use of callbacks. ",
-  "main": "index.js",
+  "main": "bundle.js",
   "scripts": {
-    "pretest": "eslint --ignore-path .gitignore . --fix",
     "build": "npx webpack --config=webpack.config.js",
+    "prod": "webpack --mode production",
     "start": "node dist/bundle.js",
     "test": "jasmine-ts --config=jasmine.json",
     "lint": "eslint src --fix --ext .ts",
@@ -44,5 +44,8 @@
     "webpack-dev-server": "^3.11.0",
     "typescript": "^3.9.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "googleapis": "^61.0.0"
+  }
 }

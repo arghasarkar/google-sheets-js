@@ -11,7 +11,30 @@
         "ecmaVersion": 11
     },
     "rules": {
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never",
+                "": "never"
+            }
+        ]
     },
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    }
 }
