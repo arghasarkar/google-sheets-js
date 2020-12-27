@@ -1,5 +1,5 @@
 # Google Sheets JS
-An easy to use synchronous google sheets reader without the use of callbacks.
+Easy to use, read-only wrapper for `googleapis` for both asynchronous & synchronous read access to Google Sheets.
 
 # Installation
 
@@ -7,11 +7,13 @@ An easy to use synchronous google sheets reader without the use of callbacks.
 
 # Usage
 
-This package can be used for reading data of excel spreadsheets.
+This package can be used for reading data of Google Sheets.
 
 ## Reading Data
 
 ```typescript
+const GoogleSheets = require("google-sheets-js");
+
 const googleSheet = new GoogleSheets(SAMPLE_SPREADSHEET_ID);
 const data = await googleSheet.fetchData("Sheet1!A1:C4");
 ```
@@ -44,8 +46,15 @@ The data will be read as:
 ```
 
 ## Refresh tokens
-Each access token has an expiry date & time. After this, the token will need to be refreshed periodically. For 
-refreshing the token,  
+Each access token has an expiry date & time. After this, the token will need to be refreshed periodically. to get a new
+token, call the `getNewToken` function.
+
+```typescript
+const GoogleSheets = require("google-sheets-js");
+
+const googleSheet = new GoogleSheets();
+googleSheet.getNewToken();
+```
 
 # Enable Google APIs and getting credentials
 
@@ -101,8 +110,11 @@ TOKEN_FILE="token-sample.json"
 SAMPLE_SHEET_ID="1ENxACcSTa6QY0qg0qmmy1Yr808Nc6ar5RpCnmF5yUXM"
 ```
 **Code**
+
 The SheetID can be supplied via the `.env` file, or it can be passed via the first parameter in the constructor.
 ```typescript
+const GoogleSheets = require("google-sheets-js");
+
 const googleSheet = new GoogleSheets();
 const data = await googleSheet.fetchData("Sheet1!A1:C4");
 ```
@@ -112,6 +124,9 @@ const data = await googleSheet.fetchData("Sheet1!A1:C4");
 The credentials and token can be stored in two different variables in code. Just pass them as constructor parameters.
 
 ```typescript
+const GoogleSheets = require("google-sheets-js");
+
+const SAMPLE_SHEET_ID = "";
 const CREDENTIALS = "";
 const TOKEN = "";
 

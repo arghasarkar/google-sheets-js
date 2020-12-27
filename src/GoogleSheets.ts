@@ -12,7 +12,7 @@ import {
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
-export default class GoogleSheets {
+export = class GoogleSheets {
     spreadsheetId: string;
 
     credentialsPath: string;
