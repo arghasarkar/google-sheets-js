@@ -15,7 +15,11 @@ This package can be used for reading data of Google Sheets.
 const GoogleSheets = require("google-sheets-js");
 
 const googleSheet = new GoogleSheets(SAMPLE_SPREADSHEET_ID);
-const data = await googleSheet.fetchData("Sheet1!A1:C4");
+
+googleSheet.fetchData("Sheet1!A1:C4")
+    .then (data => {
+        console.log(data);
+    });
 ```
 
 The data will be read as:
@@ -131,6 +135,10 @@ const CREDENTIALS = "";
 const TOKEN = "";
 
 const googleSheet = new GoogleSheets(SAMPLE_SHEET_ID, CREDENTIALS, TOKEN);
-const data = await googleSheet.fetchData("Sheet1!A1:C4");
+
+googleSheet.fetchData("Sheet1!A1:C4")
+    .then (data => {
+        console.log(data);
+    });
 ```
 
